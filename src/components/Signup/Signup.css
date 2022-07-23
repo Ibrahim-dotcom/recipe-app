@@ -1,0 +1,41 @@
+form{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+input{
+  border: none;
+  outline: none;
+  margin-left: 20px;
+}
+
+
+fieldset{
+  width: 90%;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid #2d2d2c;
+  padding: 0;
+  margin: 15px auto;
+}
+legend{
+  font-weight: 600;
+  margin-left: 10px;
+
+}
+
+#logo-wrapper{
+  display: flex;
+  align-items: center;
+}
+
+.logos{
+  width: 30px;
+  height: 30px;
+}
+p > a{
+  text-decoration: none;
+  color: #ff8100;
+}

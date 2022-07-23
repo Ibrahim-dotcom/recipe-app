@@ -1,0 +1,25 @@
+form{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+input{
+  width: 85%;
+}
+
+fieldset{
+  width: 90%;
+  height: 45px;
+  border-radius: 5px;
+  border: 1px solid #2d2d2c;
+  padding: 0;
+  margin: 15px auto;
+}
+legend{
+  font-weight: 600;
+  margin-left: 10px;
+
+}
+

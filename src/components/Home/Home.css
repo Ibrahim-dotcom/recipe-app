@@ -1,0 +1,60 @@
+#home-wrapper{
+  margin:auto 10px;
+  /*overflow: hidden;*/
+}
+
+#search{
+ width: 85vw;
+ height:10vw;
+ border-radius: 5px;
+ border:1px solid black;
+ margin-left: 0;
+}
+
+.h-and-p-wrapper{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+
+.see-all{
+  color: #ff8100;
+  font-weight: 700;
+}
+
+.food-details{
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 0 8px;
+  justify-content: space-between;
+}
+
+.food-wrapper{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: baseline;
+  overflow-x: scroll;
+  overflow-y: none;
+}
+
+
+#home-wrapper img{
+  width: 120px;
+  border-radius: 5px;
+  height: 100px;    
+}
+
+.popular-container{
+  height:40vh;
+  overflow: scroll;;
+}
+
+.popular-food-wrapper{
+  display:flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+.popular-food-details{
+  margin: 0 8px;
+  padding: 0;
+}
