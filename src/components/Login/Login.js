@@ -1,4 +1,4 @@
-import {Link,useNavigate} from 'react-router-dom';
+import {Link,useNavigate, useLocation} from 'react-router-dom';
 import {useState} from 'react';
 
 import './Login.css';
@@ -12,15 +12,19 @@ async function loginUser(credentials){
 }
 
 export default function Login({setToken}) {
+ const navigate = useNavigate();
  const [email, setEmail] = useState();
  const [password, setPassword] = useState();
- const navigate = useNavigate();
+ const {state} = useLocation();
+ const {prevPath} = state;
  
 const handleSubmit = async e =>{
   e.preventDefault();
   const tokn = await loginUser({email, password});
   setToken(tokn);
-  navigate('/home');
+  prevPath === '/' ? navigate('/home') : navigate(-1);
+  //navigate('/home');
+  return;
 }
   return(
    <div>

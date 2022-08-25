@@ -4,15 +4,29 @@
 
 #search-wrapper:fullscreen{
   background-color: white;
+  overflow: scroll;
 }
 
 #search-wrapper:fullscreen span{
   font-size: 30px;
-  margin: 8px;
+  margin-left: 3vw;
+  display: block;
 }
 
 #search-wrapper:fullscreen input{
- margin-left: 4vw;
+ margin-left: 3vw;
+}
+
+#search-wrapper input:focus{
+  border: 1px solid #ff8100;
+}
+
+#search-wrapper .popular-container{
+  height:auto;
+}
+
+#search-results > p{
+  margin-left:3vw;
 }
 
 #search{
@@ -22,6 +36,7 @@
  border:1px solid black;
  margin-left: 0;
 }
+
 
 .h-and-p-wrapper{
   display: flex;

@@ -1,0 +1,19 @@
+#post-wrapper {
+  padding: 20px;
+}
+
+input {
+ display: none;
+}
+
+label[for = 'video']{
+  width: 90vw;
+  color: #ff8100;
+  border-radius: 8px;
+  border: 1px solid #ff8100;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}

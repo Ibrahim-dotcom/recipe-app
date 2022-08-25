@@ -18,8 +18,8 @@ function App() {
           <Route path = '/login' element = {<Login setToken = {setToken}/>} />
           <Route path = '/signup' element = {<Signup setToken = {setToken} />} />
           <Route element = {<ProtectedRoute token = {token}/>}>
-            <Route path = '/home' element ={<Home />} />
-            <Route path = '/post' element = {<Post />} />
+            <Route path = '/home' element ={<Home />}/>
+            <Route path = '/post
           </Route>
         </Routes>
     </div>

@@ -1,9 +1,11 @@
 import {React, useState} from 'react';
-import  {Link} from 'react-router-dom';
+import  {Link, useLocation} from 'react-router-dom';
 import './Intro.css';
 export default function Intro() {
   let [showNextButton, setNextButton] = useState(true);
   let [showSignUp, setSignUp] = useState(false);
+
+  let location = useLocation();
   function changeIntro(event) {
     document.querySelector('#visible-intro').style.opacity = '0%';
     let intros = document.querySelectorAll('.slide-intro');
@@ -71,7 +73,7 @@ export default function Intro() {
       {showSignUp &&
          <>
            <Link to = '/signup'><button type = 'submit'>Create an account</button></Link>
-           <Link to = '/login'><button type = 'submit' className = 'plain-button'>Log in</button></Link>
+           <Link to = {'/login'} state = {{prevPath: location.pathname}}><button type = 'submit' className = 'plain-button'>Log in</button></Link>
          </>
       }
      

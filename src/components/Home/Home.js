@@ -6,7 +6,7 @@ export default  function Home(){
   const [list, setList] = useState([]);
   const [showSearch, setSearch] = useState(false);
   const [searchText, setSearchText] = useState('');
-  const [matches, setMatches] = useState(['no match found !']);
+  const [matches, setMatches] = useState([]);
 
   const showSearchResults = (e) => {
     const wrapper = document.getElementById('search-wrapper');
@@ -15,18 +15,18 @@ export default  function Home(){
     setSearch(true);
   }
   const hideSearchResults = () =>{
-    document.exitFullscreen();
     setSearch(false);
+    document.exitFullscreen();
   }
 
   useEffect(() =>{
     let mounted = true;
     if(mounted){
-      let filteredList = list.filter(i => i.name.includes(searchText));
-      filteredList != []?setMatches(filteredList) : setMatches(['no match found!']); 
+      let filteredList = searchText !== '' ?list.filter(i => i.name.includes(searchText)) : [];
+      setMatches(filteredList);
     }
     return () => mounted =false;
-  },[searchText]);
+  },[searchText, list]);
 
   useEffect(()=>{
     let mounted = true;
@@ -43,10 +43,11 @@ export default  function Home(){
       <h2>What would you like to cook</h2>
       <div id = 'search-wrapper'>
         {showSearch && <span onClick = {hideSearchResults}>{'<'}</span>}
-        <input id = 'search' placeholder = 'Search for a Recipe' type = 'search' name = 'q' onChange = {(e) => showSearchResults(e)} onFocus = {(e) => showSearchResults(e)} onBlur = {hideSearchResults}/>
+        <input id = 'search' autoComplete = 'off' placeholder = 'Search for a Recipe' type = 'search' name = 'q' onChange = {(e) => showSearchResults(e)} onFocus = {(e) => showSearchResults(e)} onBlur = {hideSearchResults}/>
         {showSearch 
            &&
              <div id = 'search-results'>
+               <p>{matches.length} matches found</p>
                {
                  matches.map(i =>(
                    <div className = 'popular-food-wrapper' key = {i.name}>
