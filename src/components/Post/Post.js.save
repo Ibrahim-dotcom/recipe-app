@@ -39,7 +39,7 @@ export default function Post(){
        <fieldset>
          <input type = 'text' placeholder = 'Type in the Ingredient' className = 'cooking-time'/>
        </fieldset>
-       <div class = 'add' onClick = {(e) => 
+       <div className = 'add' onClick = {(e) => 
                           e.target.insertAdjacentHTML('beforebegin', 
                             "<fieldset><input type = 'text' placeholder = 'Type in the ingredient' class = 'cooking-time'/></fieldset>")
        }>
@@ -62,7 +62,6 @@ export default function Post(){
        <div class = 'add' onClick = {
  			    (e) =>{
 			       let nextStep = String(document.querySelectorAll('.steps').length +1);
-   		               alert(nextStep);
       			       e.target.insertAdjacentHTML('beforebegins',`<label for = ${nextStep} className = 'steps'>
          Step ${nextStep}
        </label>
@@ -72,7 +71,6 @@ export default function Post(){
        >
           + Add
        </div>
-       <button type = 'submit'> Post </button>
      </form>
     </div>
   );

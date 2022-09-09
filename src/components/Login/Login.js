@@ -27,7 +27,7 @@ const handleSubmit = async e =>{
   return;
 }
   return(
-   <div>
+   <div id = 'login-wrapper'>
      <h1>Log in</h1>
      <p> Enter your details to log into your account</p>
      <form onSubmit = {handleSubmit}>

@@ -11,12 +11,16 @@ export default  function Home(){
   const showSearchResults = (e) => {
     const wrapper = document.getElementById('search-wrapper');
     setSearchText(e.target.value);
-    wrapper.requestFullscreen();
+    //wrapper.requestFullscreen();
+    wrapper.classList.add('fullscreen');
+    
     setSearch(true);
   }
   const hideSearchResults = () =>{
     setSearch(false);
-    document.exitFullscreen();
+    //document.exitFullscreen();
+     const wrapper = document.querySelector('#search-wrapper');
+     wrapper.classList.remove('fullscreen');
   }
 
   useEffect(() =>{

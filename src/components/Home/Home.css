@@ -2,18 +2,21 @@
   margin:auto 10px;
 }
 
-#search-wrapper:fullscreen{
+/*#search-wrapper*/.fullscreen{
+  width: 100vw;
+  height: 100vh;
   background-color: white;
   overflow: scroll;
+  z-index: 5;
 }
 
-#search-wrapper:fullscreen span{
+/*#search-wrapper*/.fullscreen span{
   font-size: 30px;
   margin-left: 3vw;
   display: block;
 }
 
-#search-wrapper:fullscreen input{
+#search-wrapper.fullscreen input{
  margin-left: 3vw;
 }
 
