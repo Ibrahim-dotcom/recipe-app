@@ -2,15 +2,19 @@
   margin:auto 10px;
 }
 
-/*#search-wrapper*/.fullscreen{
+.fullscreen{
+  position: fixed;
+  left:0;
+  top:0;
+  bottom:0;
   width: 100vw;
   height: 100vh;
   background-color: white;
   overflow: scroll;
-  z-index: 5;
+  z-index: 1;
 }
 
-/*#search-wrapper*/.fullscreen span{
+#search-wrapper.fullscreen span{
   font-size: 30px;
   margin-left: 3vw;
   display: block;
@@ -91,3 +95,21 @@
   margin: 0 8px;
   padding: 0;
 }
+
+.food{
+  width: 100vw;
+  height:100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background-color: white;
+  z-index:1;
+}
+
+
+.food img.food-image {
+  width: 100vw;
+  height: auto;
+}
+

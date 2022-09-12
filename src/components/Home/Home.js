@@ -11,14 +11,11 @@ export default  function Home(){
   const showSearchResults = (e) => {
     const wrapper = document.getElementById('search-wrapper');
     setSearchText(e.target.value);
-    //wrapper.requestFullscreen();
     wrapper.classList.add('fullscreen');
-    
     setSearch(true);
   }
   const hideSearchResults = () =>{
     setSearch(false);
-    //document.exitFullscreen();
      const wrapper = document.querySelector('#search-wrapper');
      wrapper.classList.remove('fullscreen');
   }
@@ -26,7 +23,7 @@ export default  function Home(){
   useEffect(() =>{
     let mounted = true;
     if(mounted){
-      let filteredList = searchText !== '' ?list.filter(i => i.name.includes(searchText)) : [];
+      let filteredList = searchText.replace(/\s+/g,'') !== '' ?list.filter(i => i.name.toLowerCase().includes(searchText.toLowerCase())) : [];
       setMatches(filteredList);
     }
     return () => mounted =false;
@@ -51,7 +48,7 @@ export default  function Home(){
         {showSearch 
            &&
              <div id = 'search-results'>
-               <p>{matches.length} matches found</p>
+               <p>{matches.length} Result{matches.length > 1?'s':''}</p>
                {
                  matches.map(i =>(
                    <div className = 'popular-food-wrapper' key = {i.name}>
@@ -73,8 +70,8 @@ export default  function Home(){
       <div className = 'food-wrapper'>
         {
           list.map(i =>(
-            <div  className = 'food-details' key = {i.name}>
-              <img src = {i.imageURL} alt ='' />
+            <div  className = 'food-details' key = {i.name} onClick = {(e) => e.target.closest('div').className = 'food'}>
+              <img src = {i.imageURL} alt ='' className = 'food-image' />
               <h5>{i.name}</h5>
               <p>Chef Samad</p>
               <p>{i.timers.reduce((a,b) => ~~a + ~~b)} mins</p>
