@@ -70,7 +70,7 @@ export default  function Home(){
       <div className = 'food-wrapper'>
         {
           list.map(i =>(
-            <div  className = 'food-details' key = {i.name} onClick = {(e) => e.target.closest('div').className = 'food'}>
+            <div  className = 'food-details' key = {i.name} onClick = {//(e) => e.target.closest('div').className = 'food'}>
               <img src = {i.imageURL} alt ='' className = 'food-image' />
               <h5>{i.name}</h5>
               <p>Chef Samad</p>
