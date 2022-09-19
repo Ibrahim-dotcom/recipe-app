@@ -1,12 +1,14 @@
 import React, {useEffect, useState} from 'react';
 import {getList} from '../services/list';
 import './Home.css';
+import Food from '../Food/Food'; 
 
 export default  function Home(){
   const [list, setList] = useState([]);
   const [showSearch, setSearch] = useState(false);
   const [searchText, setSearchText] = useState('');
   const [matches, setMatches] = useState([]);
+  const [showFood, setFood] = useState(true);
 
   const showSearchResults = (e) => {
     const wrapper = document.getElementById('search-wrapper');
@@ -31,7 +33,7 @@ export default  function Home(){
 
   useEffect(()=>{
     let mounted = true;
-    getList()
+    getList() 
       .then(items =>{
         if(mounted){
           setList(items)
@@ -49,8 +51,7 @@ export default  function Home(){
            &&
              <div id = 'search-results'>
                <p>{matches.length} Result{matches.length > 1?'s':''}</p>
-               {
-                 matches.map(i =>(
+               {                 matches.map(i =>(
                    <div className = 'popular-food-wrapper' key = {i.name}>
                      <img src = {i.imageURL} alt ='' />
                      <div className = 'popular-food-details'>
@@ -60,7 +61,7 @@ export default  function Home(){
                      </div>
                    </div>
                 ))}
-              </div>
+              </div> 
         }
       </div>
       <div className = 'h-and-p-wrapper'>
@@ -70,7 +71,8 @@ export default  function Home(){
       <div className = 'food-wrapper'>
         {
           list.map(i =>(
-            <div  className = 'food-details' key = {i.name} onClick = {//(e) => e.target.closest('div').className = 'food'}>
+            <div  className = 'food-details' key = {i.name}>
+              
               <img src = {i.imageURL} alt ='' className = 'food-image' />
               <h5>{i.name}</h5>
               <p>Chef Samad</p>
@@ -89,7 +91,7 @@ export default  function Home(){
              <img src = {i.imageURL} alt ='' />
              <div className = 'popular-food-details'>
                <h5>{i.name}</h5>
-               <p>Chef Ibra</p>
+               <p>Chef Jamal</p>
                <p>{i.timers.reduce((a,b) => ~~a + ~~b)} mins</p>
              </div>
            </div>
