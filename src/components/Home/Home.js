@@ -8,7 +8,7 @@ export default  function Home(){
   const [showSearch, setSearch] = useState(false);
   const [searchText, setSearchText] = useState('');
   const [matches, setMatches] = useState([]);
-  const [showFood, setFood] = useState(true);
+  const [{food, showFood}, setFoodDetails] = useState({food: '', showFood: false});
 
   const showSearchResults = (e) => {
     const wrapper = document.getElementById('search-wrapper');
@@ -46,7 +46,7 @@ export default  function Home(){
       <h2>What would you like to cook</h2>
       <div id = 'search-wrapper'>
         {showSearch && <span onClick = {hideSearchResults}>{'<'}</span>}
-        <input id = 'search' autoComplete = 'off' placeholder = 'Search for a Recipe' type = 'search' name = 'q' onChange = {(e) => showSearchResults(e)} onFocus = {(e) => showSearchResults(e)} onBlur = {hideSearchResults}/>
+        <input id = 'search' autoComplete = 'off' placeholder = 'Search for a Recipe' type = 'search' name = 'q' onChange = {(e) => showSearchResults(e)} onFocus = {(e) => showSearchResults(e)} />
         {showSearch 
            &&
              <div id = 'search-results'>
@@ -71,7 +71,7 @@ export default  function Home(){
       <div className = 'food-wrapper'>
         {
           list.map(i =>(
-            <div  className = 'food-details' key = {i.name}>
+            <div  className = 'food-details' key = {i.name} onClick = {() => setFoodDetails({food: i, showFood: true})}>
               
               <img src = {i.imageURL} alt ='' className = 'food-image' />
               <h5>{i.name}</h5>
@@ -79,6 +79,9 @@ export default  function Home(){
               <p>{i.timers.reduce((a,b) => ~~a + ~~b)} mins</p>
             </div>
           ))}
+      </div>
+      <div>
+          {showFood && <Food food = {food} />}
       </div>
       <div className = 'h-and-p-wrapper'>
         <h3>Popular Recipe</h3>
