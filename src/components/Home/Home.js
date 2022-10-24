@@ -52,7 +52,7 @@ export default  function Home(){
              <div id = 'search-results'>
                <p>{matches.length} Result{matches.length > 1?'s':''}</p>
                {                 matches.map(i =>(
-                   <div className = 'popular-food-wrapper' key = {i.name}>
+                   <div className = 'popular-food-wrapper' key = {i.name} onClick = {() => setFoodDetails({food: i, showFood: true})}>
                      <img src = {i.imageURL} alt ='' />
                      <div className = 'popular-food-details'>
                        <h5>{i.name}</h5>
@@ -71,8 +71,7 @@ export default  function Home(){
       <div className = 'food-wrapper'>
         {
           list.map(i =>(
-            <div  className = 'food-details' key = {i.name} onClick = {() => setFoodDetails({food: i, showFood: true})}>
-              
+            <div  className = 'food-details' key = {i.name} onClick = {() => setFoodDetails({food: i, showFood: true})}> 
               <img src = {i.imageURL} alt ='' className = 'food-image' />
               <h5>{i.name}</h5>
               <p>Chef Samad</p>
@@ -81,7 +80,7 @@ export default  function Home(){
           ))}
       </div>
       <div>
-          {showFood && <Food food = {food} />}
+          {showFood && <Food food = {food}  setFoodDetails = {setFoodDetails}/>}
       </div>
       <div className = 'h-and-p-wrapper'>
         <h3>Popular Recipe</h3>
@@ -90,10 +89,10 @@ export default  function Home(){
      <div className = 'popular-container'>
        {
          list.reverse().map(i =>(
-           <div className = 'popular-food-wrapper' key = {i.name}>
+           <div className = 'popular-food-wrapper' key = {i.name} onClick = {() => setFoodDetails({food: i, showFood: true})}>
              <img src = {i.imageURL} alt ='' />
              <div className = 'popular-food-details'>
-               <h5>{i.name}</h5>
+                <h5>{i.name}</h5>
                <p>Chef Jamal</p>
                <p>{i.timers.reduce((a,b) => ~~a + ~~b)} mins</p>
              </div>

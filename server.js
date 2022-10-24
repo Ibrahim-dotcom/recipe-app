@@ -1,6 +1,7 @@
 const express = require('express');
 const fs  = require('fs').promises;
 const cors = require('cors');
+const port = process.env.PORT || 8080;
 const app = express();
 
 app.use(cors());
@@ -17,4 +18,4 @@ async function getList(req, res){
   res.end(list);
   console.log(' done fetching list');
 }
-app.listen(8080,() => console.log('server listening at port 8080'));
+app.listen(port,() => console.log(`server listening at port ${port}`));

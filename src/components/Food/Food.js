@@ -1,11 +1,11 @@
 import {React} from 'react';
 import './Food.css'
-export default function Food ({food}){
+export default function Food ({food, setFoodDetails}){
     return(
         <div id = 'food-wrapper'>
             <div className='food-img-container'>
             <img src = {food?.imageURL}  alt = '' />
-            <span className='back-button'>&lt</span>
+            <span className='back-button' onClick={() => setFoodDetails({food: '', showFood: false})}>&#60;</span>
             </div>
             <div id = 'details'>
                 <h2>{food?.name}</h2>

@@ -12,16 +12,26 @@
     overflow: scroll;
 }
 
+
+
 #food-wrapper img {
     width: 100vw;
     height: auto;
 }
 
 .back-button {
-    background-color: #ff8100;
     position: absolute;
-    top: 10px;
-    width: 100px;
+    top: 20px;
+    font-size: x-large;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 8px;
+    left: 20px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #details {
